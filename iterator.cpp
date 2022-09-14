@@ -1,19 +1,41 @@
 #include<bits/stdc++.h>
 using namespace std;
-void fact(int a)
-{
-    if(a==0)
-        return;
-    fact(a-1);
-    cout<<a<<" ";
 
+void insert(stack<int>& s, int temp){
+    if(s.empty()){
+        s.push(temp);
+        return;
+    }
+    int ele = s.top();
+    s.pop();
+    insert(s,temp);
+    s.push(ele);
+}
+
+void rev(stack<int>& s)
+{
+    if(s.size()==1)
+        return;
+    int temp = s.top();
+    s.pop();
+    rev(s);
+    insert(s,temp);
+   
 }
 int main()
 {
     
-    int a;
-    cout<<"enter a no ";
-    cin>>a;
-    fact(a);
+    stack<int>s;
+    s.push(1);
+    s.push(2);
+    s.push(5);
+    s.push(4);
+    s.push(9);
+    rev(s);
+    while(!s.empty())
+    {
+        cout<<s.top()<<" ";
+        s.pop();
+    }
     return 0;
 }
