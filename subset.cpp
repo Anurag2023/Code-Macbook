@@ -8,6 +8,7 @@ using namespace std;
 
 void subset(string & ip, string& op){
     
+    return;
 }
 
 int main(){
