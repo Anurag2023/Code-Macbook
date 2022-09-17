@@ -11,7 +11,7 @@ void insert(stack<int>& s, int temp){
     s.push(ele);
 }
 void rev(stack<int>& s){
-    if(s.size()==1)
+    if(s.size() == 1 )
     {
         return;
     }
