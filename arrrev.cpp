@@ -6,10 +6,9 @@ int main() {
 	freopen("output1.txt", "w", stdout);
 #endif
 
-	int n;
-	cin >> n;
-	cout << " output : " << n;
-	int a = 12;
-	cout << a << " ";
+	vector<int>nums{1, 2, 3};
+	//subset(nums);
+	for (auto i : nums)
+		cout << i << " ";
 	return 0;
 }
