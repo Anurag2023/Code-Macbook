@@ -21,25 +21,28 @@ node* buildTree(node* root) {
 	root = new node(data);
 	if (data == -1)
 		return NULL;
-    cout<<"enter data to the left of "
+    cout<<"enter data to the left of "<<data<<endl;
 	root -> left = buildTree(root -> left);
+    cout<<"enter data to the right of "<<data<<endl;
 	root -> right = buildTree(root -> right);
 	return root;
 }
-
+    // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
 void levelOrderTraversal(node* root){
     queue<node*> q;
     q.push(root);
+    
     while(!q.empty()){
         node* temp = q.front();
+        cout<<temp -> data<<" ";
         q.pop();
-        cout<<temp<<" ";
-        if(root -> left)
-            q.push(root -> left);
-        if(root -> right)
-            q.push(root -> right);
+        
+        if(temp -> left)
+            q.push(temp -> left);
+        if(temp -> right)
+            q.push(temp -> right);
     }
-    cout<<endl;
+    //cout<<endl;
 }
 
 /*
@@ -70,7 +73,7 @@ int main()
 	node* root = NULL;
 	buildTree(root);
 	//printTree(root);
-
+    levelOrderTraversal(root);
 
 	return 0;
 }
