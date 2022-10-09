@@ -3,34 +3,33 @@
 #include<vector>
 using namespace std;
 int main() {
-	// ios_base::sync_with_stdio(false);
-	// cin.tie(NULL);
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
 	int t;
-    cout<<"enter size";
+    
 	cin >> t;
-	while (t--) {
-		vector<char> ans;
+    vector<string>ans;
+	while(t--){
+
+    
         string sentence = "";
 		string s;
 		cin >> s;
 		int len = s.length();
 		if (len <= 10) {
-			continue;
+			ans.push_back(s);
 		}
 		else
 		{
-			ans.push_back(s[0]);
-            int p = len-2;
-			ans.push_back(to_string(p));
-			ans.push_back(s[len - 1]);
-            for(auto i : ans){
-                sentence = sentence + i;
-            }
-            
-			cout << sentence << "\n";
+			sentence+=s[0];
+            sentence+=(to_string(len-2));
+            sentence+=s[len-1];           
+			ans.push_back(sentence);
 		}
-	}
-
+    }
+    for(auto i : ans){
+        cout<<i<<"\n";
+    }
 	return 0;
 
 }
